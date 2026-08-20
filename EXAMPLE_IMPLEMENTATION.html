@@ -1,0 +1,172 @@
+<!-- EXEMPLE CONCRET D'INTÉGRATION -->
+<!-- Voici exactement ce que vous verrez après intégration -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TUO WANNA ACHILLE | Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio professionnel de TUO WANNA ACHILLE, étudiant en électronique."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+  <!-- ⚠️ AJOUTER CETTE LIGNE : Script EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+</head>
+<body>
+  <!-- RESTE DU CONTENU IDENTIQUE ... -->
+  
+  <!-- ⚠️ REMPLACER CETTE SECTION (ancienne) -->
+  <!-- <section class="contact section" id="contact">
+    <div class="container">
+        <div class="contact-box">
+          <div class="contact-info">
+            ... ancien code ...
+          </div>
+        </div>
+    </div>
+  </section> -->
+  
+  <!-- ✅ PAR CETTE NOUVELLE SECTION (voir CONTACT_FORM_CODE.html) -->
+  <section class="contact section" id="contact">
+    <div class="container">
+        <div class="contact-box">
+            <div class="contact-info">
+                <p class="eyebrow eyebrow-dark">Contact</p>
+                <h2>Travaillons ensemble pour créer l'avenir.</h2>
+
+                <div class="contact-list">
+                    <a href="tel:+2250564159823" class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <small>Téléphone</small>
+                            <strong>+225 0564159823</strong>
+                        </div>
+                    </a>
+
+                    <a href="mailto:tuowanna.achille@gmail.com" class="contact-item">
+                        <span>✉️</span>
+                        <div>
+                            <small>E-mail</small>
+                            <strong>tuowannaachille@gmail.com</strong>
+                        </div>
+                    </a>
+
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <small>Localisation</small>
+                            <strong>Bouaké, Côte d'Ivoire</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✨ NOUVEAU : FORMULAIRE DE CONTACT -->
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required
+                        placeholder="Votre nom"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse email *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        placeholder="votre.email@exemple.com"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Sujet *</label>
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject" 
+                        required
+                        placeholder="Sujet de votre message"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="5" 
+                        required
+                        placeholder="Votre message..."
+                    ></textarea>
+                </div>
+
+                <div id="formMessage" class="form-message" style="display: none;"></div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                    <span>Envoyer le message</span>
+                    <span class="loading" style="display: none;">⏳ Envoi...</span>
+                </button>
+            </form>
+
+            <div class="contact-actions">
+                <a href="tel:+2250564159823" class="btn btn-primary btn-block">Appeler</a>
+                <a href="mailto:tuowanna.achille@gmail.com" class="btn btn-secondary btn-block">
+                    Écrire un mail
+                </a>
+                <button type="button" class="btn btn-light btn-block" id="copyEmailBtn">
+                    Copier l'e-mail
+                </button>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <!-- ... -->
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/2250564159823?text=Bonjour%20TUO%20WANNA%20ACHILLE%2C%20je%20viens%20de%20voir%20votre%20portfolio." target="_blank" rel="noopener noreferrer">
+    WhatsApp
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+<!-- 
+RÉSUMÉ DES MODIFICATIONS:
+
+1. Ajouter: <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+   Dans le <head> avant </head>
+
+2. Remplacer: L'ancienne <section class="contact"> 
+   Par: Le nouveau formulaire (voir CONTACT_FORM_CODE.html)
+
+3. Ajouter à css/styles.css (fin du fichier): 
+   Tous les styles de CONTACT_FORM_CSS.css
+
+4. Ajouter à js/script.js (avant </body> ou avant la fin du fichier):
+   Tous les codes de CONTACT_FORM_JS.js
+
+5. Dans CONTACT_FORM_JS.js, remplacer 3 valeurs:
+   - emailjs.init("YOUR_PUBLIC_KEY") → votre Public Key
+   - emailjs.send("YOUR_SERVICE_ID", ...) → votre Service ID
+   - emailjs.send(..., "YOUR_TEMPLATE_ID", ...) → votre Template ID
+-->
