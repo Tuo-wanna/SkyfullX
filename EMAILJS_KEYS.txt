@@ -1,0 +1,171 @@
+📝 REMPLACEZ CES VALEURS DANS JS/SCRIPT.JS
+=====================================
+
+Quand vous aurez créé votre compte EmailJS, vous recevrez 3 informations.
+Voici comment les trouver et où les mettre.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔑 CLÉS À RÉCUPÉRER SUR EMAILJS
+
+1. PUBLIC KEY (dans Integration → API Keys)
+   Exemple: pk_test_1234567890abcdef
+
+2. SERVICE ID (dans Services)
+   Exemple: service_abc123def456
+
+3. TEMPLATE ID (dans Email Templates)
+   Exemple: template_xyz789abc
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 CODE AVANT (À MODIFIER)
+─────────────────────────
+
+// ========== INITIALISER EMAILJS ==========
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY");  // ← REMPLACER ICI
+})();
+
+// ========== FORMULAIRE DE CONTACT ==========
+...
+            const response = await emailjs.send(
+                "YOUR_SERVICE_ID",      // ← REMPLACER ICI
+                "YOUR_TEMPLATE_ID",     // ← REMPLACER ICI
+                formData
+            );
+...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ EXEMPLE CONCRET (APRÈS MODIFICATION)
+────────────────────────────────────────
+
+// ========== INITIALISER EMAILJS ==========
+(function() {
+    emailjs.init("pk_test_abc123xyz789");  // ← VOTRE PUBLIC KEY
+})();
+
+// ========== FORMULAIRE DE CONTACT ==========
+...
+            const response = await emailjs.send(
+                "service_abc123",       // ← VOTRE SERVICE ID
+                "contact_form",         // ← VOTRE TEMPLATE ID
+                formData
+            );
+...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 ÉTAPES POUR TROUVER VOS VALEURS
+
+ÉTAPE 1 : PUBLIC KEY
+────────────────────
+1. Aller sur: https://dashboard.emailjs.com
+2. Cliquer "Integration" (Intégration)
+3. Cliquer "API Keys"
+4. Copier la clé qui commence par "pk_"
+
+RÉSULTAT:
+┌─────────────────────────────────────┐
+│ pk_test_a1b2c3d4e5f6g7h8i9j0k1l2m3 │
+└─────────────────────────────────────┘
+
+
+ÉTAPE 2 : SERVICE ID
+────────────────────
+1. Aller sur: https://dashboard.emailjs.com
+2. Cliquer "Services" (Services de mail)
+3. Voir votre service (ex: Gmail)
+4. Copier l'ID (ex: service_abc123)
+
+RÉSULTAT:
+┌───────────────────┐
+│ service_abc123xyz │
+└───────────────────┘
+
+
+ÉTAPE 3 : TEMPLATE ID
+─────────────────────
+1. Aller sur: https://dashboard.emailjs.com
+2. Cliquer "Email Templates"
+3. Ouvrir votre template "contact_form"
+4. L'ID s'affiche en haut (ex: template_xyz789)
+
+RÉSULTAT:
+┌────────────────────────┐
+│ template_a1b2c3d4e5f6  │
+└────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ OÙ EXACTEMENT REMPLACER LES VALEURS
+
+Fichier: js/script.js
+Ligne ~4:
+
+AVANT:
+    emailjs.init("YOUR_PUBLIC_KEY");
+
+APRÈS:
+    emailjs.init("pk_test_a1b2c3d4e5f6g7h8i9j0k1l2m3");
+
+
+Fichier: js/script.js
+Ligne ~40 (environ):
+
+AVANT:
+    const response = await emailjs.send(
+        "YOUR_SERVICE_ID",      // ← REMPLACER
+        "YOUR_TEMPLATE_ID",     // ← REMPLACER
+        formData
+    );
+
+APRÈS:
+    const response = await emailjs.send(
+        "service_abc123xyz",    // ← VOTRE SERVICE ID
+        "template_a1b2c3d4e5f6",// ← VOTRE TEMPLATE ID
+        formData
+    );
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✍️ CHECKLIST AVANT ENVOI
+
+☐ Public Key trouvé et copié
+☐ Service ID trouvé et copié  
+☐ Template ID trouvé et copié
+☐ Les 3 valeurs remplacées dans js/script.js
+☐ Fichier sauvegardé (Ctrl+S)
+☐ Page actualisée dans navigateur (F5 ou Ctrl+F5)
+☐ Test du formulaire effectué
+☐ Email de test reçu ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ ERREURS COURANTES
+
+ERREUR 1: "Public key not found"
+→ Vérifier que la clé commence par "pk_"
+→ Vérifier qu'elle est bien copiée complètement
+
+ERREUR 2: "Service/Template not found"
+→ Vérifier l'orthographe exacte
+→ Les IDs sont sensibles à la CASSE
+
+ERREUR 3: "Erreur lors de l'envoi"
+→ Ouvrir Console (F12) pour voir l'erreur
+→ Vérifier que EmailJS a un plan actif
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 BESOIN D'AIDE ?
+
+Si vous avez des erreurs:
+1. Ouvrir la console (F12 → Console)
+2. Copier le message d'erreur
+3. Consulter SETUP_CONTACT_FORM.md section "Dépannage"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ C'EST BON ! Votre formulaire est prêt à envoyer des emails ! 🎉
